@@ -1,202 +1,280 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap');
 
 * {
-    box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Poppins', sans-serif;
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #2d3748;
-    margin: 0;
-    padding: 40px 20px;
-    min-height: 100vh;
-    background-attachment: fixed;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #6b46c1 100%);
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+  color: #2d3748;
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
-body>div,
-#root>div {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    margin: 0 auto !important;
-    max-width: 650px !important;
-    padding: 40px !important;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+body > div, 
+#root > div {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  margin: 0 auto !important;
+  max-width: 650px !important; 
+  padding: 40px !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: float 6s ease-in-out infinite;
+}
 
 h2 {
-    color: #4a5568;
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(to right, #667eea, #764ba2) 1;
-    padding-bottom: 16px;
-    margin-top: 0;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: #2d3748;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(to right, #667eea, #764ba2) 1;
+  padding-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h3 {
-    color: #2b6cb0;
-    margin-top: 0;
-    font-size: 20px;
+  color: #2b6cb0;
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-input,
-select {
-    width: 100%;
-    padding: 14px 18px;
-    margin: 10px 0 20px 0;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 16px;
-    background-color: #f7fafc;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+input, select {
+  width: 100%;
+  padding: 14px 18px;
+  margin: 10px 0 20px 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f7fafc;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #667eea;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.25);
+input:focus, select:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
 }
 
 button {
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-    /* Emerald Green */
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.4);
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); 
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.4);
 }
 
 button:hover {
-    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(56, 161, 105, 0.6);
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(56, 161, 105, 0.6);
 }
 
 button:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
 form button[type="submit"] {
-    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
-    width: 100%;
-    margin-top: 10px;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+  width: 100%;
+  margin-top: 10px;
 }
 
 form button[type="submit"]:hover {
-    background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
-    box-shadow: 0 8px 20px rgba(49, 130, 206, 0.6);
+  background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+  box-shadow: 0 8px 25px rgba(49, 130, 206, 0.6);
 }
 
 h2 button {
-    background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);
-    box-shadow: 0 4px 10px rgba(213, 63, 140, 0.3);
-    font-size: 14px;
-    padding: 8px 16px;
+  background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);
+  box-shadow: 0 4px 10px rgba(213, 63, 140, 0.3);
+  font-size: 14px;
+  padding: 8px 16px;
 }
 
 h2 button:hover {
-    background: linear-gradient(135deg, #d53f8c 0%, #b83280 100%);
-    box-shadow: 0 6px 15px rgba(213, 63, 140, 0.5);
+  background: linear-gradient(135deg, #d53f8c 0%, #b83280 100%);
+  box-shadow: 0 6px 15px rgba(213, 63, 140, 0.5);
 }
 
-div>div[style*="border"]>button[style*="red"] {
-    background: transparent;
-    color: #e53e3e;
-    border: 2px solid #fc8181;
-    box-shadow: none;
-    margin-top: 15px;
+div > div[style*="border"] > button[style*="red"] {
+  background: transparent;
+  color: #e53e3e;
+  border: 2px solid #fc8181;
+  box-shadow: none;
+  margin-top: 15px;
+  width: 100%; 
 }
 
-div>div[style*="border"]>button[style*="red"]:hover {
-    background: #fff5f5;
-    border-color: #e53e3e;
-    transform: translateY(-2px);
+div > div[style*="border"] > button[style*="red"]:hover {
+  background: #fff5f5;
+  border-color: #e53e3e;
+  color: #c53030;
+  transform: translateY(-2px);
 }
 
 form {
-    background: linear-gradient(to right bottom, #ffffff, #f7fafc);
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 16px;
-    padding: 30px !important;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  background: linear-gradient(to right bottom, #ffffff, #f7fafc);
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px;
+  padding: 30px !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
-div>div[style*="border"] {
-    background: #ffffff;
-    border: 1px solid #edf2f7 !important;
-    border-radius: 16px;
-    padding: 24px !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin-bottom: 30px !important;
+div > div[style*="border"] {
+  background: #ffffff;
+  border: 1px solid #edf2f7 !important;
+  border-radius: 16px;
+  padding: 24px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 30px !important;
 }
 
-div>div[style*="border"]:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.15);
-    border-color: #cbd5e1 !important;
+div > div[style*="border"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -5px rgba(102, 126, 234, 0.2);
+  border-color: #c3dafe !important;
 }
 
-div>div[style*="background: #f9f9f9"],
-div>div[style*="background: rgb(249, 249, 249)"] {
-    background: #edf2f7 !important;
-    border-radius: 12px;
-    padding: 20px !important;
-    margin-top: 25px;
-    border: 1px dashed #cbd5e1;
+div > div[style*="background: #f9f9f9"],
+div > div[style*="background: rgb(249, 249, 249)"] {
+  background: #edf2f7 !important;
+  border-radius: 12px;
+  padding: 20px !important;
+  margin-top: 25px;
+  border: 1px dashed #cbd5e1;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 16px 0 24px 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 16px 0 24px 0;
 }
 
 li {
-    background: #ffffff;
-    padding: 14px 18px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border-left: 5px solid #667eea;
-    font-size: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-    color: #4a5568;
+  background: #ffffff;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border-left: 5px solid #667eea;
+  font-size: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  color: #4a5568;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(5px);
 }
 
 span[style*="margin"] {
-    color: #a0aec0;
-    font-weight: 800;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    background: #edf2f7;
-    padding: 8px 12px;
-    border-radius: 50%;
-    display: inline-block;
+  color: #a0aec0;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  background: #edf2f7;
+  padding: 8px 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 15px 10px;
+  }
+  
+  body > div, 
+  #root > div {
+    padding: 20px 15px !important;
+    border-radius: 16px;
+    animation: none; 
+  }
+
+  h2 {
+    font-size: 22px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  h2 button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  form {
+    padding: 20px 15px !important;
+  }
+
+  div > div[style*="border"] {
+    padding: 15px !important;
+  }
+
+  div > div[style*="border"] > button {
+    width: 100%;
+    margin: 8px 0 !important;
+    display: block;
+  }
+
+  span[style*="margin"] {
+    display: none;
+  }
+
+  input, select {
+    padding: 16px;
+  }
 }
